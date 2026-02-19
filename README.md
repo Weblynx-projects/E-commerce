@@ -1,4 +1,4 @@
-# MAISON ÉLITE - Luxury Fashion E-Commerce Website
+# Weblynx Studios - Luxury Fashion E-Commerce Website
 
 A premium, production-ready luxury fashion e-commerce demo built with pure HTML, CSS, and vanilla JavaScript. Designed to showcase high-end UI/UX capabilities for web development agency portfolios.
 
