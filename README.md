@@ -262,4 +262,4 @@ Potential additions:
 
 **Built with care for luxury and attention to detail.**
 
-MAISON ÉLITE - Where Timeless Elegance Meets Contemporary Design
+Weblynx Studios - Where Timeless Elegance Meets Contemporary Design
