@@ -16,6 +16,10 @@ let currentFilters = {
 function renderShopProductCard(product) {
     const isWishlisted = wishlist.has(product.id);
     
+    if (!product.image) {
+        console.warn('Product missing image:', product);
+    }
+    
     return `
         <article class="product-card" data-id="${product.id}">
             <div class="product-image">
@@ -94,7 +98,12 @@ function renderProducts() {
     const grid = document.getElementById('shopProductsGrid');
     const resultsCount = document.getElementById('resultsCount');
 
-    if (!grid) return;
+    if (!grid) {
+        console.error('Grid element not found');
+        return;
+    }
+
+    console.log('Rendering products:', filteredProducts.length);
 
     if (filteredProducts.length === 0) {
         grid.innerHTML = `
@@ -235,6 +244,8 @@ function handleScroll() {
 
 // Initialize shop page
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Shop page loaded. Products available:', typeof products !== 'undefined', products?.length || 0);
+    
     checkURLParams();
     initCategoryFilters();
     initTypeFilters();

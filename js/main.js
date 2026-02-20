@@ -53,6 +53,10 @@ const wishlist = new Wishlist();
 function renderProductCard(product) {
     const isWishlisted = wishlist.has(product.id);
     
+    if (!product.image) {
+        console.warn('Product missing image:', product);
+    }
+    
     return `
         <article class="product-card" data-id="${product.id}">
             <div class="product-image">
@@ -96,9 +100,13 @@ function toggleWishlist(productId) {
 // Load best sellers
 function loadBestSellers() {
     const grid = document.getElementById('bestSellersGrid');
-    if (!grid) return;
+    if (!grid) {
+        console.error('Best sellers grid not found');
+        return;
+    }
 
     const bestsellers = products.filter(p => p.bestseller).slice(0, 4);
+    console.log('Loading best sellers:', bestsellers.length);
     grid.innerHTML = bestsellers.map(renderProductCard).join('');
 }
 
@@ -204,6 +212,8 @@ function initPageAnimations() {
 
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Homepage loaded. Products available:', typeof products !== 'undefined', products?.length || 0);
+    
     loadBestSellers();
     initSmoothScroll();
     initNewsletter();
